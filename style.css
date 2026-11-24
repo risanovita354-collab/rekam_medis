@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary: #4c8c64;
+    --primary-dark: #3b7250;
+    --sage-bg: #eef5f0;
+    --sage-sidebar: #e3efe7;
+    --sage-card: #d9eae0;
+    --text-dark: #1f2d24;
+    --text-muted: #6c7d73;
+    --border-color: #dce6df;
+    --white: #ffffff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+body { background-color: #f4f8f5; color: var(--text-dark); }
+
+/* LAYOUT UTAMA (SIDEBAR + KONTEN) */
+.app-container { display: flex; min-height: 100vh; }
+.sidebar {
+    width: 245px; background: var(--sage-sidebar); padding: 24px 16px;
+    display: flex; flex-direction: column; border-right: 1px solid var(--border-color);
+    position: fixed; height: 100vh;
+}
+.brand { display: flex; align-items: center; gap: 12px; padding: 0 10px 28px; font-weight: 700; font-size: 17px; color: #1b3625; }
+.brand-icon {
+    width: 34px; height: 34px; background: var(--primary); color: white; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center; font-size: 18px;
+}
+.menu-list { list-style: none; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.menu-list a {
+    display: flex; align-items: center; gap: 12px; padding: 11px 16px; border-radius: 10px;
+    text-decoration: none; color: #3d5245; font-size: 14px; font-weight: 500; transition: 0.2s;
+}
+.menu-list a:hover { background: rgba(76, 140, 100, 0.12); color: var(--primary-dark); }
+.menu-list a.active { background: var(--primary); color: var(--white); font-weight: 600; }
+
+.main-content { flex: 1; margin-left: 245px; padding: 24px 32px; background: #f8fbf9; }
+
+/* TOPBAR */
+.topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; }
+.page-title h1 { font-size: 22px; font-weight: 700; }
+.breadcrumb { font-size: 12px; color: var(--text-muted); margin-top: 3px; }
+.topbar-right { display: flex; align-items: center; gap: 16px; font-size: 13px; color: var(--text-muted); }
+.user-badge { display: flex; align-items: center; gap: 8px; font-weight: 600; color: var(--text-dark); }
+.user-avatar {
+    width: 32px; height: 32px; background: var(--primary); color: white; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+}
+
+/* BANNER SELAMAT DATANG */
+.welcome-banner {
+    background: linear-gradient(120deg, #dfece3 0%, #eaf3ed 100%);
+    border-radius: 16px; padding: 26px 32px; display: flex; justify-content: space-between;
+    align-items: center; margin-bottom: 22px; border: 1px solid #d1e3d7;
+}
+.welcome-banner h2 { font-size: 20px; margin-bottom: 6px; color: #1b3625; }
+.welcome-banner p { font-size: 13.5px; color: #52695b; }
+.banner-badge { font-size: 46px; color: var(--primary); opacity: 0.85; }
+
+/* KARTU STATISTIK DASHBOARD */
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-bottom: 24px; }
+.stat-card { padding: 20px; border-radius: 16px; border: 1px solid rgba(0,0,0,0.04); }
+.stat-card.c1 { background: #e3f1e8; }
+.stat-card.c2 { background: #e1f2f0; }
+.stat-card.c3 { background: #f7f2dc; }
+.stat-card.c4 { background: #e3f1e8; }
+.stat-icon { font-size: 24px; margin-bottom: 12px; color: var(--primary); }
+.stat-card.c3 .stat-icon { color: #b59428; }
+.stat-label { font-size: 13px; color: #4c5e53; font-weight: 500; }
+.stat-value { font-size: 28px; font-weight: 700; margin-top: 4px; color: #1b3625; }
+
+/* CARD CONTAINER & TABEL */
+.card-box {
+    background: var(--white); border-radius: 16px; padding: 22px 24px;
+    border: 1px solid var(--border-color); box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+.card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; gap: 12px; }
+.search-box { position: relative; flex: 1; max-width: 480px; }
+.search-box i { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: #8fa396; }
+.search-box input {
+    width: 100%; padding: 10px 14px 10px 38px; border: 1px solid var(--border-color);
+    border-radius: 10px; font-size: 13.5px; background: #f9fcfa; outline: none;
+}
+
+.btn {
+    padding: 10px 18px; border-radius: 10px; font-size: 13.5px; font-weight: 600;
+    text-decoration: none; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-primary { background: var(--primary); color: white; }
+.btn-primary:hover { background: var(--primary-dark); }
+.btn-secondary { background: #ffffff; color: var(--text-dark); border: 1px solid var(--border-color); }
+
+table { width: 100%; border-collapse: collapse; }
+thead th {
+    background: #e9f2ec; color: #2b4234; font-weight: 600; font-size: 13px;
+    padding: 12px 14px; text-align: left;
+}
+thead th:first-child { border-radius: 8px 0 0 8px; }
+thead th:last-child { border-radius: 0 8px 8px 0; }
+tbody td { padding: 13px 14px; font-size: 13.5px; border-bottom: 1px solid #eff5f1; color: #34473b; }
+tbody tr:hover { background: #fafdfb; }
+
+/* TOMBOL AKSI KECIL DI TABEL */
+.action-group { display: flex; gap: 6px; }
+.act-btn {
+    width: 28px; height: 28px; border-radius: 6px; display: inline-flex; align-items: center;
+    justify-content: center; color: white; text-decoration: none; font-size: 12px;
+}
+.act-view { background: #3b5946; }
+.act-edit { background: #4c8c64; }
+.act-del  { background: #e05252; }
+
+/* FORM INPUT 2 KOLOM */
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.form-full { grid-column: span 2; }
+.form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 7px; color: #2b4234; }
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: 11px 14px; border: 1px solid var(--border-color);
+    border-radius: 10px; font-size: 13.5px; background: #fbfdfc; outline: none;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--primary); background: white;
+}
+.form-actions { display: flex; justify-content: flex-end; gap: 12px; margin-top: 22px; }
+
+/* DETAIL REKAM MEDIS */
+.detail-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 22px; }
+.info-box { background: #f4f9f6; border-radius: 14px; padding: 20px; margin-bottom: 16px; border: 1px solid #e1ede5; }
+.info-box h3 { font-size: 15px; color: var(--primary-dark); margin-bottom: 14px; border-bottom: 1px solid #dce8e0; padding-bottom: 8px; }
+.info-table td { padding: 6px 8px; border: none; font-size: 13.5px; }
+.info-table td:first-child { width: 150px; color: var(--text-muted); font-weight: 500; }
+.quote-card {
+    background: linear-gradient(160deg, #e1efe6 0%, #eef6f1 100%); border-radius: 16px;
+    padding: 30px 24px; text-align: center; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; border: 1px solid #d2e4d8;
+}
+.quote-card i { font-size: 58px; color: var(--primary); margin-bottom: 20px; }
+.quote-card p { font-size: 15px; font-weight: 600; color: #24402e; line-height: 1.5; }
